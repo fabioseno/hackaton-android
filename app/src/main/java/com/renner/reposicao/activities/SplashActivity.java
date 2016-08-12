@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Created by Dico
+ */
 public class SplashActivity extends AppCompatActivity {
 
     @Override

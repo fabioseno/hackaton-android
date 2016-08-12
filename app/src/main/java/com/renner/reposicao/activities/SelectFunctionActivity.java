@@ -45,6 +45,7 @@ public class SelectFunctionActivity extends AppCompatActivity {
         btnSelectEstoque.setOnClickListener(selectFunction);
     }
 
+
     View.OnClickListener selectFunction = new View.OnClickListener() {
 
         @Override
@@ -57,6 +58,9 @@ public class SelectFunctionActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * This method changes the images based on weather the user is Vendas or Estoque
+     */
     private void selectVendas() {
         btnSelectVendas.setBackgroundResource(R.drawable.bg_select_function_button_on);
         imgSelectVendas.setImageResource(R.drawable.img_venda_on);
@@ -67,6 +71,9 @@ public class SelectFunctionActivity extends AppCompatActivity {
         txtSelectEstoque.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.select_function_text_off));
     }
 
+    /**
+     * This method changes the images based on weather the user is Vendas or Estoque
+     */
     private void selectEstoque() {
         btnSelectEstoque.setBackgroundResource(R.drawable.bg_select_function_button_on);
         imgSelectEstoque.setImageResource(R.drawable.img_estoque_on);
