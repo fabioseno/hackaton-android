@@ -1,7 +1,15 @@
 <resources>
-    <string name="app_name">RepositionHack</string>
-
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_name">ReposiçãoH</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <!-- LOGIN SCREEN -->
+    <string name="str_login_entrar">ENTRAR</string>
+    <string name="str_login_problemas">Problemas com acesso?</string>
+    <string name="str_login_version">0.0.1-HACK</string>
+    <string name="str_login_desc_repo">Reposição</string>
+    <string name="str_login_desc_agilize">AGILIZE RENNER</string>
+
+    <!-- FUNCTION SELECT SCREEN -->
+    <string name="str_vendas">Vendas</string>
+    <string name="str_estoque">Estoque</string>
 </resources>

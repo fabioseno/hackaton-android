@@ -3,6 +3,26 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
     <color name="black_overlay">#66000000</color>
+    <color name="white">#ffffff</color>
+    <color name="light_grey">#E8E8E8</color>
+    <color name="background_grey">#EFEFEF</color>
+    <color name="light_red">#CD888F</color>
+    <color name="login_line_red">#CE5B63</color>
+    <color name="action_bar_color">#d71920</color>
+
+    <!-- This are the colors used on our red background gradients and on the login button -->
+    <color name="darker_red_grad">#800000</color>
+    <color name="dark_red_grad">#AD0000</color>
+    <color name="lighter_red_grad">#CA0003</color>
+
+    <!-- This are the colors used on our function selection buttons and texts -->
+    <color name="lighter_grey_grad">#F7F7F7</color>
+    <color name="darker_grey_grad">#DFDFDF</color>
+    <color name="select_button_border">#D6D6D7</color>
+    <color name="select_function_text_on">#D71920</color>
+    <color name="select_function_text_off">#D6D7D8</color>
+    <color name="user_name_text">#BCBEC0</color>
+
+
 </resources>

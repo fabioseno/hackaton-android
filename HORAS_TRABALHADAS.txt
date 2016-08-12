@@ -1,0 +1,5 @@
+00:48
+Desenvolvimento do layout das telas de Splash + Login.
+
+3:10
+Recorte de imagens no Fireworks + melhorias de layout + integração da tela de Login com o serviço REST.

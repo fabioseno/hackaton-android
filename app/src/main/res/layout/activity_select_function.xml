@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_grey"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".activities.SelectFunctionActivity">
+
+    <LinearLayout
+        android:id="@+id/btnSelectVendas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="@drawable/bg_select_function_button_on">
+
+        <ImageView
+            android:id="@+id/imgSelectVendas"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/img_venda_on"/>
+
+        <TextView
+            android:id="@+id/txtSelectVendas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center"
+            android:text="@string/str_vendas"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/select_function_text_on"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnSelectEstoque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="@drawable/bg_select_function_button_off">
+
+        <ImageView
+            android:id="@+id/imgSelectEstoque"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/img_estoque_off"/>
+
+        <TextView
+            android:id="@+id/txtSelectEstoque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:text="@string/str_estoque"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/select_function_text_off"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:gravity="bottom"
+        android:text="Olá, Dico"
+        android:textSize="15sp"
+        android:textColor="@color/user_name_text"/>
+
+</LinearLayout>
