@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black">#000000</color>
     <color name="black_overlay">#66000000</color>
     <color name="white">#ffffff</color>
     <color name="light_grey">#E8E8E8</color>
@@ -10,6 +11,7 @@
     <color name="light_red">#CD888F</color>
     <color name="login_line_red">#CE5B63</color>
     <color name="action_bar_color">#d71920</color>
+    <color name="link_color">#0000EE</color>
 
     <!-- This are the colors used on our red background gradients and on the login button -->
     <color name="darker_red_grad">#800000</color>

@@ -8,6 +8,9 @@
     <string name="str_login_version">0.0.1-HACK</string>
     <string name="str_login_desc_repo">Reposição</string>
     <string name="str_login_desc_agilize">AGILIZE RENNER</string>
+    <string name="str_login_dialog_title">Resolva o problema de acesso no site:</string>
+    <string name="str_login_dialog_link">http://nossarede.lojasrenner.com.br</string>
+    <string name="str_login_dialog_close">Fechar</string>
 
     <!-- FUNCTION SELECT SCREEN -->
     <string name="str_vendas">Vendas</string>

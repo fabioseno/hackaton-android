@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.renner.reposicao">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +13,8 @@
         <activity
             android:name=".activities.SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/Splash.Theme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +24,7 @@
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/Red.Gradient.Theme" />
-        <activity
-            android:name=".activities.SelectFunctionActivity" />
+        <activity android:name=".activities.SelectFunctionActivity" />
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.renner.reposicao.R;
+import com.renner.reposicao.constants.ApplicationConstants;
 
 /**
  * Created by Dico
@@ -22,7 +23,7 @@ public class SelectFunctionActivity extends AppCompatActivity {
     private ImageView imgSelectEstoque;
     private TextView txtSelectVendas;
     private TextView txtSelectEstoque;
-
+    private TextView txtUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +36,25 @@ public class SelectFunctionActivity extends AppCompatActivity {
         imgSelectEstoque = (ImageView) findViewById(R.id.imgSelectEstoque);
         txtSelectVendas = (TextView) findViewById(R.id.txtSelectVendas);
         txtSelectEstoque = (TextView) findViewById(R.id.txtSelectEstoque);
+        txtUserName = (TextView) findViewById(R.id.txtUserName);
     }
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        initWidgets();
+    }
+
+    /**
+     * Starts the required widgets
+     */
+    private void initWidgets() {
+        txtUserName.setText(String.format("Olá, %s", ApplicationConstants.currentUser.getNome()));
+
         btnSelectVendas.setOnClickListener(selectFunction);
         btnSelectEstoque.setOnClickListener(selectFunction);
     }
-
 
     View.OnClickListener selectFunction = new View.OnClickListener() {
 
@@ -83,5 +93,4 @@ public class SelectFunctionActivity extends AppCompatActivity {
         imgSelectVendas.setImageResource(R.drawable.img_venda_off);
         txtSelectVendas.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.select_function_text_off));
     }
-
 }

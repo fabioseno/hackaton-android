@@ -1,15 +1,20 @@
 package com.renner.reposicao.activities;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,11 +37,11 @@ import java.util.Map;
  */
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String LOGIN_URL = "https://maratona.herokuapp.com/login";
     private boolean isProgressBarShowing = false;
 
     private Context context;
     private Button btnEntrar;
+    private Button btnProblemasAcesso;
     private EditText editTextLogin;
     private EditText editTextPassword;
     private Toast toast;
@@ -48,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         btnEntrar = (Button) findViewById(R.id.btnEntrar);
+        btnProblemasAcesso = (Button) findViewById(R.id.btnProblemasAcesso);
         editTextLogin = (EditText) findViewById(R.id.editTextLogin);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -64,34 +70,55 @@ public class LoginActivity extends AppCompatActivity {
      * Starts the required widgets
      */
     private void initWidgets() {
+        ApplicationConstants.currentActivity = this;
         context = LoginActivity.this;
-        btnEntrar.setOnClickListener(checkCredentials);
+        btnEntrar.setOnClickListener(clickedEntrar);
+        btnProblemasAcesso.setOnClickListener(showLoginDialog);
+        editTextPassword.setOnEditorActionListener(enteredPassword);
     }
 
     /**
-     * This method is called when the user presses the 'ENTRAR' button
-     * In case of empty credentials: display the propper message
-     * Otherwise: Calls the validateCredentials method
+     * Calls checkCredentials on the ENTRAR button press
      */
-    View.OnClickListener checkCredentials = new View.OnClickListener() {
+    View.OnClickListener clickedEntrar = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
-            String login = editTextLogin.getText().toString();
-            String senha = editTextPassword.getText().toString();
-
-            if (!login.isEmpty() && !senha.isEmpty()) {
-                validateCredentials(login, senha);
-                shouldDisplayProgressBar();
-            } else {
-                Toast toast = Toast.makeText(
-                        context,
-                        "Preencha os campos de login e senha!",
-                        Toast.LENGTH_SHORT);
-                toast.show();
-            }
+            checkCredentials();
         }
     };
+
+    /**
+     * Calls checkCredentials on the keyboard DONE press
+     */
+    EditText.OnEditorActionListener enteredPassword = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkCredentials();
+            }
+            return false;
+        }
+    };
+
+    /**
+     * This method validates if both User and Password are filled
+     */
+    private void checkCredentials() {
+        String login = editTextLogin.getText().toString();
+        String senha = editTextPassword.getText().toString();
+
+        if (!login.isEmpty() && !senha.isEmpty()) {
+            validateCredentials(login, senha);
+            shouldDisplayProgressBar();
+        } else {
+            Toast toast = Toast.makeText(
+                    context,
+                    "Preencha os campos de login e senha!",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
 
     /**
      * Validates the user credentials against the login service at: https://maratona.herokuapp.com/login.
@@ -100,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     private void validateCredentials(final String login, final String senha) {
 
-        String loginURI = String.format(LOGIN_URL, login, senha);
+        String loginURI = String.format(ApplicationConstants.LOGIN_URL, login, senha);
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, loginURI,
                 new Response.Listener<String>() {
@@ -111,10 +138,6 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response).getJSONObject("data");
                             String nome = jsonResponse.getString("nome");
                             String lojaId = jsonResponse.getString("lojaId");
-
-                            String requestResponse = "Nome: " + nome + "\nLojaID: " + lojaId;
-                            toast = Toast.makeText(context, requestResponse, Toast.LENGTH_SHORT);
-                            toast.show();
 
                             createCurrentUser(login, senha, nome, lojaId);
 
@@ -166,7 +189,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is used to calls the SelectFunctionActivity
+     * This method is used to call the SelectFunctionActivity
      */
     private void callSelectFunctionActivity() {
         shouldDisplayProgressBar();
@@ -187,6 +210,36 @@ public class LoginActivity extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         }
-
     }
+
+    View.OnClickListener showLoginDialog = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            final Dialog dialog = new Dialog(context);
+            dialog.setContentView(R.layout.dialog_login_screen);
+
+            Button btnDialogLink = (Button) dialog.findViewById(R.id.btnDialogLink);
+            Button btnDialogFechar = (Button) dialog.findViewById(R.id.btnDialogFechar);
+
+            btnDialogLink.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(getResources().getString(R.string.str_login_dialog_link)));
+
+                    startActivity(intent);
+                }
+            });
+
+            btnDialogFechar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+        }
+    };
 }

@@ -7,7 +7,7 @@
     android:paddingBottom="0dp"
     android:paddingLeft="45dp"
     android:paddingRight="45dp"
-    android:paddingTop="20dp"
+    android:paddingTop="16dp"
     tools:context=".activities.LoginActivity">
 
     <LinearLayout
@@ -77,16 +77,17 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <TextView
+        <Button
             android:id="@+id/btnProblemasAcesso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:clickable="true"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/str_login_problemas"
             android:textColor="@color/light_red"
-            android:textSize="16sp" />
+            android:textSize="15sp"
+            android:background="@android:color/transparent"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -94,17 +95,18 @@
             android:contentDescription="@string/str_login_desc_agilize"
             android:src="@drawable/img_logo_agilize" />
 
-        <TextView
-            android:id="@+id/txtAppVersion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="@string/str_login_version"
-            android:textColor="@color/light_grey"
-            android:textSize="12sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtAppVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="@string/str_login_version"
+        android:textColor="@color/light_grey"
+        android:textSize="12sp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
