@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,10 +18,12 @@ import com.renner.reposicao.constants.ApplicationConstants;
  */
 public class SelectFunctionActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     private LinearLayout btnSelectVendas;
     private LinearLayout btnSelectEstoque;
     private ImageView imgSelectVendas;
     private ImageView imgSelectEstoque;
+    private TextView txtToolbarTitle;
     private TextView txtSelectVendas;
     private TextView txtSelectEstoque;
     private TextView txtUserName;
@@ -29,6 +32,12 @@ public class SelectFunctionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_function);
+
+        // Defines the Toolbar and its title
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        txtToolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        txtToolbarTitle.setText(getResources().getString(R.string.str_title_funcao));
 
         btnSelectVendas = (LinearLayout) findViewById(R.id.btnSelectVendas);
         btnSelectEstoque = (LinearLayout) findViewById(R.id.btnSelectEstoque);
@@ -44,6 +53,7 @@ public class SelectFunctionActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
 
         initWidgets();
+
     }
 
     /**

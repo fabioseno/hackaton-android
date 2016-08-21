@@ -13,6 +13,7 @@
     <string name="str_login_dialog_close">Fechar</string>
 
     <!-- FUNCTION SELECT SCREEN -->
+    <string name="str_title_funcao">Função</string>
     <string name="str_vendas">Vendas</string>
     <string name="str_estoque">Estoque</string>
 </resources>
